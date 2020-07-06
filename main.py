@@ -14,7 +14,6 @@ def displayTab(tab):
 
 def lifeOrDeath(tab, line, column, birth, survive, die):
     sum = 0
-
     for i in range(-1, 2):
         if line + i >= len(tab) or line + i < 0:
             continue
@@ -49,13 +48,11 @@ tab[5][7] = 1
 birth = 3
 survie = 2
 die = 5
-i = 0
-while i < 100:
-    if i == 0:
-        print("Base")
-    else:
-        print("Iteration", i)
+
+for i in range(10):
     displayTab(tab)
     tab = evolution(tab)
-    time.sleep(0.5)
-    i += 1
+    time.sleep(0.1)
+
+def getTab():
+    return tab
