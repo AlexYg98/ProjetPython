@@ -1,15 +1,5 @@
-import time
-
 def createTab(length):
     return [[0] * length for i in range(length)]
-
-
-def displayTab(tab):
-    for i in range(len(tab)):
-        for j in range(len(tab[i])):
-            print(tab[i][j], end='|')
-        print()
-    print("_________________")
 
 def calculateNbNeighbour(tab, line, column):
     sum = 0
@@ -38,39 +28,8 @@ def evolution(tab):
     res = createTab(len(tab))
     for i in range(len(tab)):
         for j in range(len(tab)):
-            res[i][j] = lifeOrDeath(tab, i, j, birth, survie, die)
+            res[i][j] = lifeOrDeath(tab, i, j, 3, 2, 5)
     return res
 
-def pause():
-    return not pause
 
-def reset(tab):
-    tab = createTab(11)
 
-pause = False
-reset = False
-tab = createTab(11)
-tab[5][3] = 1
-tab[5][4] = 1
-tab[5][5] = 1
-tab[5][6] = 1
-tab[5][7] = 1
-birth = 3
-survie = 2
-die = 5
-i = 0
-while True:
-    if reset:
-        reset(tab)
-        reset = False
-    if pause:
-        time.sleep(0.5)
-    else:
-        if i == 0:
-            print("Base")
-        else:
-            print("Iteration", i)
-        displayTab(tab)
-        tab = evolution(tab)
-        time.sleep(0.5)
-        i += 1
